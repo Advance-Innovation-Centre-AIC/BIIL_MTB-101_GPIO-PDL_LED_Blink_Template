@@ -29,13 +29,19 @@ This sequence will lead to the LED blinking on and off every half-second (250ms 
 - 👉  Open Eclipse IDE ModusToolbox               
 ![image](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-100_Hello_World_and_LED_Blinking_Programming_Template/assets/88732241/276b5ee3-7752-488c-baa7-3b55f6615b27)                 
 
-- 👉  Select board    
+- 👉  Select board  
+  
 ![image](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-100_Hello_World_and_LED_Blinking_Programming_Template/assets/88732241/df637b74-1bee-4c0c-9bdc-4b70d7f0cee8)
 
-- 👉  Select Application
+- 👉  Select Application      
 ![image](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-102_GPIO-PDL_LED_Blink_Template/assets/88732241/662a9e38-6f1b-4558-b8b7-49ed8cc1d42b)
 
-- 👉  Build Application      
+- 👉  Device Configuration
+  ![image](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-102_GPIO-PDL_LED_Blink_Template/assets/88732241/778447ee-6e93-4b91-a038-be23573b82f4)
+  - Find Pin and search for `led` then select the `P1[5]`      
+    ![image](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-102_GPIO-PDL_LED_Blink_Template/assets/88732241/5f516394-f05e-43e3-b0f7-2eb7daf2d8a6)
+
+     
 
 - 👉  Launching Program
   - Before launching the program to the board, make sure that you have already connected the board to the computer through USB cable.        
