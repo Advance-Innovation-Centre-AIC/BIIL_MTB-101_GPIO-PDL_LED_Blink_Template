@@ -40,18 +40,50 @@ This sequence will lead to the LED blinking on and off every half-second (250ms 
   ![image](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-102_GPIO-PDL_LED_Blink_Template/assets/88732241/778447ee-6e93-4b91-a038-be23573b82f4)
   - Find Pin and search for `led` then select the `P1[5]`      
     ![image](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-102_GPIO-PDL_LED_Blink_Template/assets/88732241/5f516394-f05e-43e3-b0f7-2eb7daf2d8a6)
+  -  Set the pin's `Drive Mode` parameter to `Strong Drive Input buffer off`.      
+![image](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-102_GPIO-PDL_LED_Blink_Template/assets/88732241/a3fe848a-4396-4788-8ead-0afce0b0ddbd)
+  - Coding: Open the main.c file and add the following code to the main() function.
+  ```
+    cyhal_gpio_init(CYBSP_USER_LED, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 1);
+  
+    for (;;)
+    {
+        /* Drive the USER LED pin low (LED on) */
+    	cyhal_gpio_write(CYBSP_USER_LED, 0);
 
-     
+        /* Wait 250 ms */
+    	cyhal_system_delay_ms(250);
 
-- 👉  Launching Program
-  - Before launching the program to the board, make sure that you have already connected the board to the computer through USB cable.        
+        /* Drive the USER LED pin high (LED off) */
+    	cyhal_gpio_write(CYBSP_USER_LED, 1);
+
+        /* Wait 250 ms */
+    	cyhal_system_delay_ms(250);
+    }
+  ```
+
+
+    - `cyhal_gpio_init(CYBSP_USER_LED, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 1);` This line of code is initializing the GPIO pin, labeled CYBSP_USER_LED, as an output pin. The parameters after the pin name set the direction of the pin (CYHAL_GPIO_DIR_OUTPUT), the drive mode (CYHAL_GPIO_DRIVE_STRONG, which sets the output buffer to a strong drive mode for faster transitions), and the initial state of the pin (1, which indicates a high logic level, meaning the LED is off if it's active low).
+
+    - `for (;;)` This line starts an infinite loop. The code contained within the curly braces {} will repeat indefinitely.
+    - `cyhal_gpio_write(CYBSP_USER_LED, 0);` This line of code sets the state of the CYBSP_USER_LED pin to low (0). If the LED is active low, this will turn it on.
+    - `cyhal_system_delay_ms(250);` This line of code pauses the program for 250 milliseconds. During this delay, the state of the LED remains unchanged.
+    - `cyhal_gpio_write(CYBSP_USER_LED, 1);` This line of code sets the state of the CYBSP_USER_LED pin to high (1). If the LED is active low, this will turn it off.
+    - `cyhal_system_delay_ms(250);` This line of code pauses the program for another 250 milliseconds. The LED remains in its current state during this delay.    
+      => The overall effect of this code is to create a blinking LED, where the LED is on for 250 milliseconds, then off for 250 milliseconds, and this pattern repeats indefinitely.
+
+- 👉  Build the Application
+- 👉  Launching the Application
+    - Before launching the program to the board, make sure that you have already connected the board to the computer through USB cable.        
 ![image](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-100_Hello_World_and_LED_Blinking_Programming_Template/assets/88732241/7a6bb6ef-cb63-4613-98a1-42f9617ad724)
   - Launching Program    
+    ![image](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-102_GPIO-PDL_LED_Blink_Template/assets/88732241/efee18cb-0e32-4d4e-93d1-6dd0ee609140)
 
 - 👉  Check the Result
+  ![106650](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-102_GPIO-PDL_LED_Blink_Template/assets/88732241/7d1bbd14-4157-4f9c-823d-e8f147dfea2e)
 
-### 🎉  Congratulations! You can now complete Lab100 by creating, building, and launching the application program.
 
+### 🎉  Congratulations! You can now complete Lab102
 
 ## Supported toolchains (make variable 'TOOLCHAIN')
 
