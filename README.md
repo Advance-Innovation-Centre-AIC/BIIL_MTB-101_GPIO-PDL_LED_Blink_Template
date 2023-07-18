@@ -44,34 +44,27 @@ This sequence will lead to the LED blinking on and off every half-second (250ms 
 ![image](https://github.com/Advance-Innovation-Centre-AIC/BIIL_MTB-102_GPIO-PDL_LED_Blink_Template/assets/88732241/a3fe848a-4396-4788-8ead-0afce0b0ddbd)
   - Coding: Open the main.c file and add the following code to the main() function.
   ```
-    cyhal_gpio_init(CYBSP_USER_LED, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 1);
-  
-    for (;;)
+  for (;;)
     {
         /* Drive the USER LED pin low (LED on) */
-    	cyhal_gpio_write(CYBSP_USER_LED, 0);
-
+      	Cy_GPIO_Set(CYBSP_USER_LED_PORT, CYBSP_USER_LED_NUM);
+      
         /* Wait 250 ms */
-    	cyhal_system_delay_ms(250);
-
+    	Cy_SysLib_Delay(250U);
+    
         /* Drive the USER LED pin high (LED off) */
-    	cyhal_gpio_write(CYBSP_USER_LED, 1);
-
+    	Cy_GPIO_Clr(CYBSP_USER_LED_PORT, CYBSP_USER_LED_NUM);
+    
         /* Wait 250 ms */
-    	cyhal_system_delay_ms(250);
+	Cy_SysLib_Delay(250U);
     }
   ```
-
-
-    - `cyhal_gpio_init(CYBSP_USER_LED, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 1);` This line of code is initializing the GPIO pin, labeled CYBSP_USER_LED, as an output pin. The parameters after the pin name set the direction of the pin (CYHAL_GPIO_DIR_OUTPUT), the drive mode (CYHAL_GPIO_DRIVE_STRONG, which sets the output buffer to a strong drive mode for faster transitions), and the initial state of the pin (1, which indicates a high logic level, meaning the LED is off if it's active low).
-
-    - `for (;;)` This line starts an infinite loop. The code contained within the curly braces {} will repeat indefinitely.
-    - `cyhal_gpio_write(CYBSP_USER_LED, 0);` This line of code sets the state of the CYBSP_USER_LED pin to low (0). If the LED is active low, this will turn it on.
-    - `cyhal_system_delay_ms(250);` This line of code pauses the program for 250 milliseconds. During this delay, the state of the LED remains unchanged.
-    - `cyhal_gpio_write(CYBSP_USER_LED, 1);` This line of code sets the state of the CYBSP_USER_LED pin to high (1). If the LED is active low, this will turn it off.
-    - `cyhal_system_delay_ms(250);` This line of code pauses the program for another 250 milliseconds. The LED remains in its current state during this delay.    
-      => The overall effect of this code is to create a blinking LED, where the LED is on for 250 milliseconds, then off for 250 milliseconds, and this pattern repeats indefinitely.
-
+    - `for (;;`) This line starts an infinite loop. The code contained within the curly braces {} will repeat indefinitely.
+    - `Cy_GPIO_Set(CYBSP_USER_LED_PORT, CYBSP_USER_LED_NUM);` sets the GPIO pin specified by CYBSP_USER_LED_PORT and CYBSP_USER_LED_NUM to a high state, turning on the LED connected to that pin.
+    - `Cy_SysLib_Delay(250U);` introduces a delay of 250 milliseconds, causing a pause in the execution of the program. This delay is implemented using a system library function.
+    - `Cy_GPIO_Clr(CYBSP_USER_LED_PORT, CYBSP_USER_LED_NUM);` clears (sets to a low state) the GPIO pin specified by CYBSP_USER_LED_PORT and CYBSP_USER_LED_NUM, turning off the LED connected to that pin.
+    - Another `Cy_SysLib_Delay(250U);` introduces another delay of 250 milliseconds.
+=> This sequence of code turns on the LED, waits for 250 milliseconds, turns off the LED, and then waits for another 250 milliseconds. The cycle then repeats, creating a blinking effect for the LED.
 - 👉  Build the Application
 - 👉  Launching the Application
     - Before launching the program to the board, make sure that you have already connected the board to the computer through USB cable.        
