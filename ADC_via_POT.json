@@ -1,0 +1,56 @@
+{
+    "frameEnd": "",
+    "frameStart": "",
+    "groups": [
+        {
+            "datasets": [
+                {
+                    "alarm": 15,
+                    "fft": false,
+                    "fftSamples": 1024,
+                    "graph": true,
+                    "led": false,
+                    "log": false,
+                    "max": 24,
+                    "min": 0,
+                    "title": "ADC",
+                    "units": "V",
+                    "value": "%2",
+                    "widget": "bar"
+                },
+                {
+                    "alarm": 0,
+                    "fft": false,
+                    "fftSamples": 1024,
+                    "graph": false,
+                    "led": false,
+                    "log": false,
+                    "max": 0,
+                    "min": 0,
+                    "title": "MCU Counter",
+                    "units": "times",
+                    "value": "%1",
+                    "widget": ""
+                },
+                {
+                    "alarm": 24,
+                    "fft": false,
+                    "fftSamples": 1024,
+                    "graph": true,
+                    "led": false,
+                    "log": false,
+                    "max": 24,
+                    "min": 0,
+                    "title": "ADC2",
+                    "units": "V",
+                    "value": "%4",
+                    "widget": ""
+                }
+            ],
+            "title": "BDH Data Monitor",
+            "widget": ""
+        }
+    ],
+    "separator": "",
+    "title": "BDH Academy"
+}
